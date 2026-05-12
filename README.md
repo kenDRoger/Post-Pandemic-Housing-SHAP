@@ -489,17 +489,3 @@ Due to the large dataset, **2,000 rows** are randomly sampled (seed=42) from the
 | `XGB/shap_xgb_dependence_*.png` | 4 | XGBoost SHAP dependence plots |
 
 ---
-
-## Citation
-
-If you use this work, please cite:
-
-```
-Group 4, 3CSE Machine Learning. "Post-Pandemic-Housing-SHAP: Comparative Analysis
-of Decision Tree Regression and Multiple Linear Regression with SHAP Analysis for
-Interpretable Post-Pandemic Housing Price Prediction." 2026.
-```
-
----
-
-**License:** Academic Project — Machine Learning Course, 3CSE
