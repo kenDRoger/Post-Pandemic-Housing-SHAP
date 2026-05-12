@@ -1,0 +1,18 @@
+{
+  "max_depth": 7,
+  "min_child_weight": 50,
+  "gamma": 0.9934233474813923,
+  "learning_rate": 0.05201563019900633,
+  "subsample": 0.8677265663043146,
+  "colsample_bytree": 0.8909867866345313,
+  "reg_alpha": 15.67676782329591,
+  "reg_lambda": 2.8598796523011405,
+  "objective": "reg:absoluteerror",
+  "seed": 42,
+  "seed_per_iteration": false,
+  "random_state": 42,
+  "tree_method": "hist",
+  "device": "cuda",
+  "n_estimators": 100,
+  "enable_categorical": false
+}

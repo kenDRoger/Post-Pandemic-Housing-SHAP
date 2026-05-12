@@ -1,0 +1,90 @@
+
+GPU-Accelerated XGBoost Regressor - Final Project Report
+============================================================
+
+Generated: 2026-05-12 19:36:11
+
+1. DATA SUMMARY
+   - Total samples: 92,748
+   - Features: 10
+   - Training samples: 78825
+   - Validation samples (for Optuna): 19707
+   - Holdout samples (FINAL evaluation): 13,923
+   - Target transformation: log1p (stabilizes variance)
+
+2. GPU OPTIMIZATION
+   - Data type: float32 (50% memory reduction)
+   - Tree method: hist (GPU-optimized histogram)
+   - QuantileDMatrix: Pre-calculated bins (saves minutes)
+   - MAPE calculation: GPU-based (avoids CPU transfer)
+
+3. HYPERPARAMETER TUNING (Optuna with Early Stopping)
+   - Total trials: 50
+   - Best trial: 36
+   - Best MAPE: 9.05%
+   - Optimal n_estimators: None
+   - Best objective: reg:absoluteerror
+   - Best hyperparameters:
+     - max_depth: 7
+     - min_child_weight: 50
+     - gamma: 0.9934233474813923
+     - learning_rate: 0.05201563019900633
+     - subsample: 0.8677265663043146
+     - colsample_bytree: 0.8909867866345313
+     - reg_alpha: 15.67676782329591
+     - reg_lambda: 2.8598796523011405
+     - objective: reg:absoluteerror
+
+4. FINAL MODEL PERFORMANCE (on Holdout Set)
+   - Holdout R²: 0.9289
+   - Holdout MSE: 2313679616.0000
+   - Holdout RMSE: 48100.7237
+   - Holdout MAE: 26839.6543 (interpretable in actual units)
+   - Holdout MAPE: 7.61% (average percentage error)
+
+5. METRIC INTERPRETATIONS
+   - MAE: On average, predictions are off by 26839.6543 units
+   - MAPE: On average, predictions are off by 7.61%
+   - For real estate: If price is $500k and MAPE is 5%, avg error = $25k
+
+6. OVERFITTING PREVENTION
+   - min_child_weight: 50 (prevents single-zip leaves)
+   - gamma: 0.9934233474813923 (requires minimum loss reduction)
+   - Early stopping: 50 rounds (automatically finds optimal trees)
+
+7. TOP 5 MOST IMPORTANT FEATURES (Gain-Based)
+   - new_homeowner_affordability: 89.1748
+   - market_heat_index: 61.8601
+   - rent: 54.7679
+   - state_encoded: 48.3303
+   - Time_Index: 36.8344
+
+8. FILES GENERATED
+   - Model: xgb_json/xgboost_booster.json (native XGBoost JSON)
+   - Parameters: xgb_json/best_params.json
+   - Tuning results: tuning_results.json
+   - Residual plot: residual_plot.png
+   - Optuna database: tuning_progress.db
+
+9. FUTURE WORK: Multi-GPU Scaling with Dask
+   For production deployment at Zillow scale (millions of properties),
+   this single-GPU implementation would be extended using Dask:
+
+   ```python
+   import dask_cuml
+   from dask_xgboost import XGBRegressor
+
+   # Distribute across GPU cluster
+   client = Client(n_workers=4, threads_per_worker=1, processes=False)
+
+   # Dask-aware XGBoost
+   model = XGBRegressor(tree_method='hist', device='cuda')
+   model.fit(dask_X_train, dask_y_train)
+   ```
+
+   Benefits:
+   - Horizontal scaling across multiple GPUs
+   - Handle datasets larger than single GPU memory
+   - Faster hyperparameter tuning with distributed Optuna
+
+============================================================
