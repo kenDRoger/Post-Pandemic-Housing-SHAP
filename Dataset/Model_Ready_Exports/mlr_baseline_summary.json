@@ -1,0 +1,25 @@
+{
+    "model": "Multiple Linear Regression (Baseline)",
+    "target_transformation": "log1p",
+    "metrics": {
+        "r2_test": 0.8271,
+        "rmse_test": 74978.28,
+        "mae_test": 50290.33,
+        "mape_test_pct": 14.36
+    },
+    "model_parameters": {
+        "intercept_log_scale": 12.0586,
+        "features_used": [
+            "rent",
+            "for_sale",
+            "days_pending",
+            "price_cuts",
+            "market_heat_index",
+            "new_homeowner_affordability",
+            "space_premium",
+            "is_post_pandemic",
+            "state_encoded"
+        ]
+    },
+    "random_state": 42
+}

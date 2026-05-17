@@ -1,22 +1,22 @@
 {
-  "best_trial": 36,
-  "best_value": 9.049686590830484,
+  "best_trial": 85,
+  "best_value": 8.884160359700521,
   "best_params": {
     "max_depth": 7,
-    "min_child_weight": 50,
-    "gamma": 0.9934233474813923,
-    "learning_rate": 0.05201563019900633,
-    "subsample": 0.8677265663043146,
-    "colsample_bytree": 0.8909867866345313,
-    "reg_alpha": 15.67676782329591,
-    "reg_lambda": 2.8598796523011405,
+    "min_child_weight": 10,
+    "gamma": 0.4758285586585349,
+    "learning_rate": 0.08681492988569786,
+    "subsample": 0.9600397414075735,
+    "colsample_bytree": 0.9088144821461728,
+    "reg_alpha": 2.8768097406044806,
+    "reg_lambda": 16.307843143886572,
     "objective": "reg:absoluteerror"
   },
   "optimal_n_estimators": null,
   "best_objective": "reg:absoluteerror",
-  "n_trials": 50,
+  "n_trials": 100,
   "tuning_method": "XGBoost GPU with Early Stopping",
   "metric": "MAPE",
-  "elapsed_time": 566.7066016197205,
-  "timestamp": "2026-05-12T19:36:04.843731"
+  "elapsed_time": 764.257171869278,
+  "timestamp": "2026-05-17T21:28:28.981923"
 }

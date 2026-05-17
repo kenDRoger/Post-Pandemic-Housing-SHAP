@@ -2,7 +2,7 @@
 GPU-Accelerated XGBoost Regressor - Final Project Report
 ============================================================
 
-Generated: 2026-05-12 19:36:11
+Generated: 2026-05-17 21:33:58
 
 1. DATA SUMMARY
    - Total samples: 92,748
@@ -19,49 +19,49 @@ Generated: 2026-05-12 19:36:11
    - MAPE calculation: GPU-based (avoids CPU transfer)
 
 3. HYPERPARAMETER TUNING (Optuna with Early Stopping)
-   - Total trials: 50
-   - Best trial: 36
-   - Best MAPE: 9.05%
+   - Total trials: 100
+   - Best trial: 85
+   - Best MAPE: 8.88%
    - Optimal n_estimators: None
    - Best objective: reg:absoluteerror
    - Best hyperparameters:
      - max_depth: 7
-     - min_child_weight: 50
-     - gamma: 0.9934233474813923
-     - learning_rate: 0.05201563019900633
-     - subsample: 0.8677265663043146
-     - colsample_bytree: 0.8909867866345313
-     - reg_alpha: 15.67676782329591
-     - reg_lambda: 2.8598796523011405
+     - min_child_weight: 10
+     - gamma: 0.4758285586585349
+     - learning_rate: 0.08681492988569786
+     - subsample: 0.9600397414075735
+     - colsample_bytree: 0.9088144821461728
+     - reg_alpha: 2.8768097406044806
+     - reg_lambda: 16.307843143886572
      - objective: reg:absoluteerror
 
 4. FINAL MODEL PERFORMANCE (on Holdout Set)
-   - Holdout R²: 0.9289
-   - Holdout MSE: 2313679616.0000
-   - Holdout RMSE: 48100.7237
-   - Holdout MAE: 26839.6543 (interpretable in actual units)
-   - Holdout MAPE: 7.61% (average percentage error)
+   - Holdout R²: 0.9413
+   - Holdout MSE: 1908224384.0000
+   - Holdout RMSE: 43683.2277
+   - Holdout MAE: 25960.3965 (interpretable in actual units)
+   - Holdout MAPE: 7.34% (average percentage error)
 
 5. METRIC INTERPRETATIONS
-   - MAE: On average, predictions are off by 26839.6543 units
-   - MAPE: On average, predictions are off by 7.61%
+   - MAE: On average, predictions are off by 25960.3965 units
+   - MAPE: On average, predictions are off by 7.34%
    - For real estate: If price is $500k and MAPE is 5%, avg error = $25k
 
 6. OVERFITTING PREVENTION
-   - min_child_weight: 50 (prevents single-zip leaves)
-   - gamma: 0.9934233474813923 (requires minimum loss reduction)
+   - min_child_weight: 10 (prevents single-zip leaves)
+   - gamma: 0.4758285586585349 (requires minimum loss reduction)
    - Early stopping: 50 rounds (automatically finds optimal trees)
 
 7. TOP 5 MOST IMPORTANT FEATURES (Gain-Based)
-   - new_homeowner_affordability: 89.1748
-   - market_heat_index: 61.8601
-   - rent: 54.7679
-   - state_encoded: 48.3303
-   - Time_Index: 36.8344
+   - new_homeowner_affordability: 55.5044
+   - market_heat_index: 40.8879
+   - state_encoded: 37.4993
+   - rent: 34.6750
+   - price_cuts: 24.8851
 
 8. FILES GENERATED
-   - Model: xgb_json/xgboost_booster.json (native XGBoost JSON)
-   - Parameters: xgb_json/best_params.json
+   - Model: XGB/xgb_json/xgboost_booster.json (native XGBoost JSON)
+   - Parameters: XGB/xgb_json/best_params.json
    - Tuning results: tuning_results.json
    - Residual plot: residual_plot.png
    - Optuna database: tuning_progress.db

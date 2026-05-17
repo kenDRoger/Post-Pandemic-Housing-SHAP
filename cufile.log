@@ -1,0 +1,14 @@
+ 17-05-2026 21:15:30:104 [pid=329288 tid=329288] WARN   0:140 unable to load,  liburcu-bp.so.6 
+
+ 17-05-2026 21:15:30:104 [pid=329288 tid=329288] WARN   0:140 unable to load,  liburcu-bp.so.1 
+
+ 17-05-2026 21:15:30:594 [pid=329288 tid=329288] WARN   0:184 failed to open /proc/driver/nvidia-fs/devcount  error: No such file or directory
+ 17-05-2026 21:15:30:594 [pid=329288 tid=329288] NOTICE  cufio-drv:1063 running in compatible mode
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio-fs:412 error creating udev_device for block device dev_no: 0:52
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio-fs:954 error getting volume attributes error for device: dev_no: 0:52
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] NOTICE  cufio:289 cuFileHandleRegister GDS not supported or disabled by config, using cuFile posix read/write with compat mode enabled
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio-fs:412 error creating udev_device for block device dev_no: 0:52
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio-fs:954 error getting volume attributes error for device: dev_no: 0:52
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio-obj:244 unable to get volume attributes for fd 128
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio:307 cuFileHandleRegister error, failed to allocate file object
+ 17-05-2026 21:15:31:372 [pid=329288 tid=329288] ERROR  cufio:337 cuFileHandleRegister error: file descriptor is not registered
